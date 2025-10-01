@@ -84,9 +84,10 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_10_a_InitAllSettings" sap:VirtualizedContainerService.HintSize="959.2,676.44" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_10_a_InitAllSettings" sap:VirtualizedContainerService.HintSize="880.8000000000001,337.704" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arrstrAssets" />
     </Sequence.Variables>
@@ -111,8 +112,11 @@
               <OutArgument x:TypeArguments="s:String[]">[arrstrAssets]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="s:String[]" xml:space="preserve">[{
-""}]</InArgument>
+              <InArgument x:TypeArguments="s:String[]" xml:space="preserve">[{"P1 Storage Mail Template",
+"P1 Storage Bucket",
+"P1 Mail Receiver",
+"P1 Mail Subject",
+"P1 Mail Sender"}]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -138,37 +142,37 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="currentAsset" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="10.a fetch asset for current" sap:VirtualizedContainerService.HintSize="416,108" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="10.a fetch asset for current" sap:VirtualizedContainerService.HintSize="486.4,796.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="10.a Try Catch - handle fetch assets" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="10.a Try Catch - handle fetch assets" sap:VirtualizedContainerService.HintSize="452.8,736.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <TryCatch.Try>
-                <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="416,482.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:RetryScope DisplayName="10.a Retry current asset" sap:VirtualizedContainerService.HintSize="382.4,224" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:10">
+                  <ui:RetryScope DisplayName="10.a Retry current asset" sap:VirtualizedContainerService.HintSize="382.4,422.4" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:10">
                     <ui:RetryScope.ActivityBody>
                       <ActivityAction>
-                        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[currentAsset]" CacheStrategy="None" DisplayName="10.a Get Current Asset" FolderPath="[istrorchestrator]" sap:VirtualizedContainerService.HintSize="292,24.8" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+                        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[currentAsset]" CacheStrategy="None" DisplayName="10.a Get Current Asset" FolderPath="[istrorchestrator]" sap:VirtualizedContainerService.HintSize="334.4,143.2" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
                           <ui:GetRobotAsset.Value>
                             <OutArgument x:TypeArguments="x:Object">[odictAssets(currentAsset)]</OutArgument>
                           </ui:GetRobotAsset.Value>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -178,11 +182,22 @@
                     <ui:RetryScope.Condition>
                       <ActivityFunc x:TypeArguments="x:Boolean" />
                     </ui:RetryScope.Condition>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                   </ui:RetryScope>
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="419.2,23.2" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                   <ActivityAction x:TypeArguments="s:Exception">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
@@ -226,7 +241,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ucas:ReadStorageText TimeoutMS="{x:Null}" DisplayName="10.a Read Storage Mail template" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="ReadStorageText_1" Path="[istrorchestrator]" StorageBucketName="[odictAssets(&quot;&quot;).ToString]">
+    <ucas:ReadStorageText TimeoutMS="{x:Null}" DisplayName="10.a Read Storage Mail template" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="ReadStorageText_1" Path="[odictAssets(&quot;P1 Storage Mail Template&quot;).ToString]" Result="[ostrMailTemplate]" StorageBucketName="[odictAssets(&quot;P1 Storage Bucket&quot;).ToString]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -234,6 +249,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ucas:ReadStorageText>
-    <ui:LogMessage DisplayName="10.a Log Initialization Complete" sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Project Initilization complete.&quot;]" />
+    <ui:LogMessage DisplayName="10.a Log Initialization Complete" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Project Initilization complete.&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
   </Sequence>
 </Activity>
