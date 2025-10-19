@@ -163,7 +163,7 @@
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="istrMailTemplate">[strMailTemplate]</InArgument>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="idictAssets">[dictAssets]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="istrEmpSecrateCode">[istrEmpCode]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="istrEmpSecrateCode">[istrEmpSecrateCode]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="istrEmpCode">[istrEmpCode]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="istrEmpEmail">[istrEmpEmail]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
@@ -202,7 +202,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="467.2,237.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="467.2,221.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
